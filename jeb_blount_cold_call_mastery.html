@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeb Blount — Cold Calling Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg2: #111111;
+    --bg3: #181818;
+    --bg4: #202020;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #F0EDE8;
+    --text2: #A09890;
+    --text3: #605850;
+    --accent: #E8341A;
+    --accent2: #FF5C3A;
+    --gold: #D4A843;
+    --gold2: #F0C060;
+    --teal: #1AADA0;
+    --teal2: #22C9BA;
+    --blue: #2A7FD4;
+    --green: #2AB870;
+    --purple: #8B5CF6;
+    --card-r: 12px;
+    --sm-r: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-badge {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: #fff;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 1px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: none;
+    color: var(--text2);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .15s;
+  }
+  .nav-btn:hover { background: var(--bg3); color: var(--text); }
+  .nav-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* ── LAYOUT ── */
+  .main { padding: 40px; max-width: 1040px; margin: 0 auto; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO STAT BAR ── */
+  .stat-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--card-r);
+    padding: 18px 20px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-num.accent { color: var(--accent2); }
+  .stat-num.gold { color: var(--gold2); }
+  .stat-num.teal { color: var(--teal2); }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  /* ── SECTION HEADING ── */
+  .section-head {
+    margin-bottom: 24px;
+  }
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .section-head p {
+    font-size: 14px;
+    color: var(--text2);
+    margin-top: 6px;
+    line-height: 1.65;
+    max-width: 680px;
+  }
+
+  /* ── ACCORDION ── */
+  .accordion { margin-bottom: 10px; }
+  .acc-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--card-r);
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .acc-head:hover { background: var(--bg3); border-color: var(--border2); }
+  .acc-head.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+    background: var(--bg3);
+  }
+  .acc-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .acc-meta { flex: 1; }
+  .acc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .acc-sub {
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .acc-arrow {
+    font-size: 16px;
+    color: var(--text3);
+    transition: transform .2s;
+  }
+  .acc-head.open .acc-arrow { transform: rotate(180deg); }
+  .acc-body {
+    display: none;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-bottom-left-radius: var(--card-r);
+    border-bottom-right-radius: var(--card-r);
+    padding: 20px 18px;
+  }
+  .acc-body.open { display: block; }
+
+  /* ── CONTENT BLOCKS ── */
+  .block {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--sm-r);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .block-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .block-title i { font-size: 15px; }
+  .steps { list-style: none; }
+  .steps li {
+    font-size: 13px;
+    color: var(--text2);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.55;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 11px;
+    top: 8px;
+  }
+  .steps li strong { color: var(--text); font-weight: 600; }
+
+  /* ── SCRIPT BOX ── */
+  .script-box {
+    background: var(--bg4);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--sm-r) var(--sm-r) 0;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .script-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+  .script-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+  .script-text em { color: var(--text3); font-style: normal; }
+
+  /* ── LAW CARD ── */
+  .law-card {
+    border-radius: var(--sm-r);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+  }
+  .law-card.blue { background: rgba(42,127,212,0.1); border-left: 3px solid var(--blue); }
+  .law-card.teal { background: rgba(26,173,160,0.1); border-left: 3px solid var(--teal); }
+  .law-card.amber { background: rgba(212,168,67,0.1); border-left: 3px solid var(--gold); }
+  .law-card.red { background: rgba(232,52,26,0.1); border-left: 3px solid var(--accent); }
+  .law-card.purple { background: rgba(139,92,246,0.1); border-left: 3px solid var(--purple); }
+  .law-card.green { background: rgba(42,184,112,0.1); border-left: 3px solid var(--green); }
+  .law-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .law-body {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  /* ── PILL / TAG ── */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .tag.red { background: rgba(232,52,26,0.15); color: var(--accent2); }
+  .tag.gold { background: rgba(212,168,67,0.15); color: var(--gold2); }
+  .tag.teal { background: rgba(26,173,160,0.15); color: var(--teal2); }
+  .tag.blue { background: rgba(42,127,212,0.15); color: #6AAFF0; }
+  .tag.green { background: rgba(42,184,112,0.15); color: var(--green); }
+  .tag.purple { background: rgba(139,92,246,0.15); color: #B08FF8; }
+  .tag.gray { background: rgba(255,255,255,0.07); color: var(--text2); }
+
+  /* ── STEP SEQUENCE ── */
+  .step-seq {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--bg3);
+    border-radius: var(--sm-r);
+    border: 1px solid var(--border);
+  }
+  .step-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-title { font-size: 13px; font-weight: 600; color: var(--text); }
+  .step-desc { font-size: 12px; color: var(--text2); margin-top: 3px; line-height: 1.55; }
+  .step-time { font-size: 11px; color: var(--text3); font-weight: 500; margin-top: 1px; }
+
+  /* ── DIVIDER ── */
+  .div { height: 1px; background: var(--border); margin: 14px 0; }
+
+  /* ── METRIC GRID ── */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .metric-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--sm-r);
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .metric-lbl {
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 4px;
+  }
+
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  @media(max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .stat-bar { grid-template-columns: repeat(2,1fr); }
+    .metric-grid { grid-template-columns: repeat(2,1fr); }
+    .main { padding: 20px; }
+    .header { padding: 16px 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--border2);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -24px; top: 4px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg2);
+  }
+  .tl-label { font-size: 11px; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 3px; }
+  .tl-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+  /* ── OBJECTION CARD ── */
+  .obj-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--sm-r);
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .obj-trigger {
+    background: rgba(232,52,26,0.08);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent2);
+  }
+  .obj-trigger::before { content: '🚫  '; }
+  .obj-response { padding: 12px 14px; }
+  .obj-response-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal2); margin-bottom: 6px; }
+  .obj-response-text { font-size: 13px; color: var(--text); line-height: 1.65; font-family: 'DM Mono', monospace; font-size: 12.5px; }
+  .obj-why { font-size: 12px; color: var(--text2); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); line-height: 1.55; font-family: 'DM Sans', sans-serif; }
+
+  /* ── EQ PILLAR ── */
+  .eq-pillar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .eq-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--sm-r);
+    padding: 14px;
+  }
+  .eq-icon { font-size: 22px; margin-bottom: 8px; }
+  .eq-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .eq-body { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* ── SCHEDULE TABLE ── */
+  .sched-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .sched-row:last-child { border-bottom: none; }
+  .sched-time { color: var(--gold2); font-weight: 600; font-family: 'DM Mono', monospace; font-size: 12px; min-width: 90px; margin-top: 1px; }
+  .sched-act { color: var(--text); flex: 1; }
+  .sched-type { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .sched-type.gold { background: rgba(212,168,67,0.15); color: var(--gold2); }
+  .sched-type.red { background: rgba(232,52,26,0.12); color: var(--accent2); }
+  .sched-type.gray { background: rgba(255,255,255,0.06); color: var(--text3); }
+
+  /* ── CALCULATOR ── */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .calc-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text3);
+    margin-bottom: 6px;
+  }
+  .calc-field input {
+    width: 100%;
+    background: var(--bg4);
+    border: 1px solid var(--border2);
+    border-radius: var(--sm-r);
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text);
+    outline: none;
+    transition: border-color .15s;
+  }
+  .calc-field input:focus { border-color: var(--accent); }
+  .calc-result {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--card-r);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .calc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .cr-box {
+    text-align: center;
+    padding: 12px 8px;
+    background: var(--bg2);
+    border-radius: var(--sm-r);
+    border: 1px solid var(--border);
+  }
+  .cr-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .cr-val.red { color: var(--accent2); }
+  .cr-val.gold { color: var(--gold2); }
+  .cr-val.teal { color: var(--teal2); }
+  .cr-lbl { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 4px; }
+  .calc-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--sm-r);
+    padding: 10px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background .15s;
+    margin-bottom: 10px;
+  }
+  .calc-btn:hover { background: var(--accent2); }
+
+  /* ── FUNNEL ── */
+  .funnel { margin: 16px 0; }
+  .funnel-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+  .funnel-label { font-size: 12px; color: var(--text2); min-width: 160px; }
+  .funnel-bar-wrap { flex: 1; background: var(--bg3); border-radius: 4px; height: 28px; overflow: hidden; position: relative; }
+  .funnel-bar {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    min-width: 60px;
+    transition: width .5s ease;
+  }
+  .funnel-val { font-size: 12px; color: var(--text3); min-width: 40px; text-align: right; font-family: 'DM Mono', monospace; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li i { color: var(--teal2); margin-top: 2px; font-size: 14px; flex-shrink: 0; }
+  .checklist li strong { color: var(--text); }
+
+  /* ── MULTI-CHANNEL CADENCE ── */
+  .cadence-day {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cadence-day:last-child { border-bottom: none; }
+  .cad-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text3);
+    min-width: 32px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .cad-channel {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .cad-action {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.55;
+    flex: 1;
+    min-width: 200px;
+  }
+  .ch-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+  }
+  .ch-pill.call { background: rgba(232,52,26,0.15); color: var(--accent2); }
+  .ch-pill.email { background: rgba(42,127,212,0.15); color: #6AAFF0; }
+  .ch-pill.vm { background: rgba(139,92,246,0.15); color: #B08FF8; }
+  .ch-pill.li { background: rgba(26,173,160,0.15); color: var(--teal2); }
+  .ch-pill.break { background: rgba(212,168,67,0.15); color: var(--gold2); }
+
+  /* ── VOICE TONALITY ── */
+  .tone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .tone-card {
+    border-radius: var(--sm-r);
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+  .tone-card.do { background: rgba(42,184,112,0.06); border-color: rgba(42,184,112,0.25); }
+  .tone-card.dont { background: rgba(232,52,26,0.06); border-color: rgba(232,52,26,0.2); }
+  .tone-head { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .tone-head.do { color: var(--green); }
+  .tone-head.dont { color: var(--accent2); }
+  .tone-item { font-size: 12px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .tone-item:last-child { border-bottom: none; }
+
+  /* ── HABIT TRACKER ── */
+  .habit-week {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--sm-r);
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .habit-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .habit-days { display: flex; gap: 6px; }
+  .habit-day {
+    flex: 1; text-align: center;
+  }
+  .habit-dot {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--border2);
+    background: var(--bg4);
+    margin: 0 auto 4px;
+    cursor: pointer;
+    transition: all .15s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .habit-dot:hover { border-color: var(--accent); }
+  .habit-dot.done { background: rgba(42,184,112,0.2); border-color: var(--green); }
+  .habit-day-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── RESISTANCE THERMOMETER ── */
+  .resist-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0;
+  }
+  .resist-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .resist-label { font-size: 12px; color: var(--text2); min-width: 120px; }
+  .resist-bar { flex: 1; height: 6px; border-radius: 3px; }
+  .resist-action { font-size: 11px; color: var(--text3); min-width: 180px; }
+
+  /* ── PRINT-WORTHY QUOTE ── */
+  .big-quote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    margin: 20px 0;
+    background: var(--bg2);
+    border-radius: 0 var(--sm-r) var(--sm-r) 0;
+  }
+  .big-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+  .big-quote cite {
+    display: block;
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 8px;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">
+    <div class="header-badge"><i class="ti ti-phone-call"></i></div>
+    <div>
+      <div class="header-title">Fanatical Prospecting — Cold Calling Mastery</div>
+      <div class="header-sub">Jeb Blount Framework · Deep Dive Edition</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showPage('mindset',this)">Mindset</button>
+    <button class="nav-btn" onclick="showPage('laws',this)">The Laws</button>
+    <button class="nav-btn" onclick="showPage('time',this)">Time Blocking</button>
+    <button class="nav-btn" onclick="showPage('framework',this)">Call Framework</button>
+    <button class="nav-btn" onclick="showPage('voice',this)">Voice & Tonality</button>
+    <button class="nav-btn" onclick="showPage('voicemail',this)">Voicemail & Email</button>
+    <button class="nav-btn" onclick="showPage('cadence',this)">Cadence</button>
+    <button class="nav-btn" onclick="showPage('objections',this)">Objections</button>
+    <button class="nav-btn" onclick="showPage('gatekeeper',this)">Gatekeepers</button>
+    <button class="nav-btn" onclick="showPage('eq',this)">Sales EQ</button>
+    <button class="nav-btn" onclick="showPage('pipeline',this)">Pipeline</button>
+    <button class="nav-btn" onclick="showPage('metrics',this)">Metrics</button>
+    <button class="nav-btn" onclick="showPage('habits',this)">Elite Habits</button>
+  </nav>
+</div>
+
+<div class="main">
+
+<!-- ═══════════ MINDSET ═══════════ -->
+<div id="page-mindset" class="page active">
+  <div class="stat-bar">
+    <div class="stat-card"><div class="stat-num accent">80%</div><div class="stat-label">of sales require 5+ touches</div></div>
+    <div class="stat-card"><div class="stat-num gold">44%</div><div class="stat-label">of reps quit after 1 follow-up</div></div>
+    <div class="stat-card"><div class="stat-num teal">92%</div><div class="stat-label">of prospects say yes by touch 6</div></div>
+    <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label">more likely to close with referral</div></div>
+  </div>
+  <div class="section-head">
+    <h2>The mindset reset</h2>
+    <p>Everything starts here. Your pipeline is empty because your mind hasn't accepted what this job actually demands. Until you do, no script, no training, no tool will save you. These are the brutal realities you must internalize before you dial a single number.</p>
+  </div>
+
+  <div class="big-quote">
+    <p>"Fanatical prospectors are relentless. They prospect when they don't feel like it, when it's inconvenient, and when someone tells them to stop."</p>
+    <cite>— Jeb Blount</cite>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-alert-triangle"></i></div>
+      <div class="acc-meta"><div class="acc-title">The 3 brutal truths — internalize all 3 or nothing works</div><div class="acc-sub">Day 1 — non-negotiable foundation</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title" style="color:var(--accent2)"><i class="ti ti-chart-bar"></i> Truth 1: An empty pipeline is the only real failure</div>
+        <ul class="steps">
+          <li>Write this on an index card and tape it to your monitor right now: <strong>"My pipeline is my salary. I fill it every single day."</strong></li>
+          <li>Every morning before you touch your phone, say it out loud. This is not motivational fluff — it's neural reprogramming. Repetition builds automatic behaviour.</li>
+          <li>When you feel like skipping a calling block because you have "enough in the pipeline," that feeling is a lie. The 30-Day Rule means what you don't do today will hollow out your results in 90 days.</li>
+          <li>Track your pipeline visually — a whiteboard with stages, a kanban board, anything physical you see daily. When it's thin, the visual discomfort should feel uncomfortable enough to drive action.</li>
+          <li><strong>Outcome:</strong> Prospecting stops being optional. It becomes as non-negotiable as showing up. You wouldn't skip eating — don't skip prospecting.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-title" style="color:var(--accent2)"><i class="ti ti-phone-off"></i> Truth 2: Prospecting is interrupting — own it</div>
+        <ul class="steps">
+          <li>You are calling someone who did not ask you to call. This is a fact. Stop apologising for it in your tone, your opener, or your body language. You are not a nuisance — you are a professional with something valuable.</li>
+          <li>Before you dial, ask yourself: <strong>"Do I genuinely believe my product/service can help this person?"</strong> If you hesitate, you have a product belief problem, not a prospecting problem. Fix the belief first.</li>
+          <li>The word "just" is banned from your vocabulary on calls. "I'm just calling to..." signals low confidence. Replace it: "I'm calling because..." — assertive, clear, confident.</li>
+          <li>Stop saying "sorry to bother you" or "I know you're busy." These phrases validate every reason they have to hang up. You're not bothering them — you're offering them something. Act like it.</li>
+          <li><strong>Outcome:</strong> Your voice changes. You dial with confidence instead of dread. Prospects can hear the difference — and they respond to it.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-title" style="color:var(--accent2)"><i class="ti ti-x"></i> Truth 3: Rejection is the job description</div>
+        <ul class="steps">
+          <li>Set a daily rejection goal. Literally: aim for 20 "no's" per day. When you hit 20, you worked. Celebrate the rejection because it means you showed up and dialled.</li>
+          <li>Rejection is not personal — they rejected the interruption, not you. They don't know you. They rejected the timing, the moment, the context. Stop making it about your worth.</li>
+          <li>After every rejection, write down the exact words used. "Not interested." "We already have someone." "Send me an email." These become your objection library — the most valuable asset you'll build in your first 90 days.</li>
+          <li>The best salespeople in the world get rejected more than average reps. They just dial more. Volume is the cure for rejection sensitivity.</li>
+          <li><strong>Outcome:</strong> Rejection stops stinging because you've reframed it. Each "no" is data and a step toward the next "yes." You can't get to yes without going through no.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,127,212,0.15);color:#6AAFF0"><i class="ti ti-heart"></i></div>
+      <div class="acc-meta"><div class="acc-title">Build your "why" anchor — the emotional foundation</div><div class="acc-sub">Day 1–3 · Do this before your first block</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-pencil"></i> The "why" exercise</div>
+        <ul class="steps">
+          <li>Get a blank sheet of paper. Write <strong>"Why do I need to succeed in sales?"</strong> at the top. Set a timer for 10 minutes. Write without filtering. Family, money, freedom, proving people wrong, security — all valid.</li>
+          <li>Then narrow it to one sentence: <strong>"I do this because ___."</strong> That sentence goes on your wall, next to your monitor, visible while you dial.</li>
+          <li>On your worst days — and they're coming — read it before you pick up the phone. Your "why" must be bigger than your discomfort, or you'll quit when it gets hard.</li>
+          <li>Revisit and update it every 90 days. As your income grows, your "why" evolves. Keep it current or it loses its power.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-music"></i> Build a pre-call state ritual (5 minutes, every block)</div>
+        <ul class="steps">
+          <li><strong>Minute 1–2:</strong> Your hype playlist. Not ambient music. Something that puts you in a peak physical and emotional state. Stand up while you listen.</li>
+          <li><strong>Minute 3:</strong> Read your "why" out loud. Then say: "I am the best at this. I help people. Today I will make 50 dials."</li>
+          <li><strong>Minute 4–5:</strong> Read your script out loud, twice. Not silently — out loud. Your mouth needs to know the words before your brain is fully engaged.</li>
+          <li>Smile before you dial. This is not optional. Record yourself smiling vs. not smiling. Your voice literally sounds different. Warmer, more confident, more trustworthy. Prospects hear the smile.</li>
+          <li>Stand up during your calling block if possible. Your voice carries more authority. Your energy is higher. You move away from avoidance psychology that sitting enables.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(212,168,67,0.15);color:var(--gold2)"><i class="ti ti-clock-stop"></i></div>
+      <div class="acc-meta"><div class="acc-title">Eliminate "getting ready to get ready" — the silent pipeline killer</div><div class="acc-sub">Week 1 · Most dangerous habit for new reps</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title" style="color:var(--gold2)"><i class="ti ti-alert-circle"></i> The 5 avoidance behaviours disguised as work</div>
+        <ul class="steps">
+          <li><strong>Research paralysis:</strong> Spending 3+ hours researching one prospect before calling is procrastination dressed up as professionalism. You need 90 seconds of research per prospect — maximum. Name, title, one thing about their company. Done. Set a timer.</li>
+          <li><strong>Script perfectionism:</strong> Your script will never be perfect. Write a draft today and make 20 calls tomorrow. You will learn more from 20 real calls than from 20 hours of script editing. The script is built in the field, not at a desk.</li>
+          <li><strong>CRM over-logging:</strong> During calling blocks, log only: Attempted / Voicemail / Spoke / Outcome. Details come during Platinum Hours. Every minute spent typing during a Golden Hour is a dial you didn't make.</li>
+          <li><strong>Inbox management:</strong> Email is not revenue. Checking email during a calling block is avoidance. Set it to check every 2 hours during Golden Hours, not constantly.</li>
+          <li><strong>Social media "research":</strong> Scrolling LinkedIn for intel on prospects feels productive. It is mostly not. Get in, get the one fact you need, get out. 90 seconds. Timer on.</li>
+          <li><strong>Action:</strong> Set a 90-second research timer per prospect. When it goes off, you dial — ready or not. The call will teach you more than the research ever could.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ THE LAWS ═══════════ -->
+<div id="page-laws" class="page">
+  <div class="section-head">
+    <h2>Jeb's fundamental laws</h2>
+    <p>These aren't suggestions. They are the governing physics of your pipeline. Violate them and you pay the price in 90 days. Follow them and your results become predictable, scalable, and compounding.</p>
+  </div>
+
+  <div class="law-card blue">
+    <div class="law-title">The 30-Day Rule</div>
+    <div class="law-body">The prospecting you do today will pay off in the next 90 days. What you don't do today will create a gap in your pipeline 30–90 days from now. This lag is invisible — which makes it dangerous. You feel fine today and wonder why you're broke next quarter.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>Never skip a prospecting day because you <em>"have enough in the pipeline right now."</em> That's the exact moment most reps stop prospecting — and create the future slump they'll blame on the market.</li>
+      <li>When you land a big deal, go straight back to prospecting the same day. Most reps celebrate and go quiet. That silence creates a drought in 90 days. Discipline beats emotion.</li>
+      <li>Mark a wall calendar every day you hit your dial number. Streaks matter. Never break a 2-day miss into a 3-day miss. A 3-day miss becomes a week. A week becomes a habit of not prospecting.</li>
+      <li>Slow months do not come from slow markets — they come from slow prospecting 2–3 months earlier. Always look backwards to diagnose your present, and forward to protect your future.</li>
+    </ul>
+  </div>
+
+  <div class="law-card teal">
+    <div class="law-title">The Law of Replacement</div>
+    <div class="law-body">Every prospect that advances or exits your pipeline must be immediately replaced. Your pipeline has a leak rate. If you don't understand yours, you're flying blind. Add new prospects at a rate greater than your closing ratio or your pipeline will shrink — even when you're closing deals.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>After every meeting, proposal, or discovery call that moves forward — go back to your list and add 3 new prospects to replace the forward motion. Every advance creates a gap. Fill it now.</li>
+      <li>Calculate your monthly leak rate: (prospects removed or lost) ÷ (total prospects in pipeline). If 30% drop off monthly, you must add 30%+ new ones just to stay flat. Add 40%+ to grow.</li>
+      <li>When a prospect ghosts you after 5+ unanswered touches across 14 days — remove them and replace immediately. Don't hold them in your pipeline. Ghosts inflate your numbers and distort your ratios.</li>
+      <li>Replacement is not a monthly task. It's a daily reflex. Every deal that moves forward, every deal that dies — immediately replaced. Same day.</li>
+    </ul>
+  </div>
+
+  <div class="law-card red">
+    <div class="law-title">The Law of Need</div>
+    <div class="law-body">The more desperately you need a sale, the less likely you are to get it. Desperation is detectable. Prospects hear it in your vocal pace, feel it in your follow-up frequency, and sense it in your willingness to cave on price. A full pipeline is the only antidote to desperation.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>The moment you feel desperate, the answer is more prospecting — not more pressure on your existing pipeline. Go make 20 more dials. Add prospects. Cure desperation with abundance.</li>
+      <li>Signs you're operating from need: dropping your price before they ask, calling a prospect 3 times in one day, over-explaining why they should buy, giving discounts in your opener. All desperation signals.</li>
+      <li>Never call a prospect more than once per day across any channel. One touch per day maximum. Any more and you've crossed from persistent into desperate.</li>
+      <li>Negotiate from strength by having 20 other deals moving. When you genuinely don't need this specific deal, your posture and language change — and prospects feel it. They buy from the confident version of you.</li>
+    </ul>
+  </div>
+
+  <div class="law-card purple">
+    <div class="law-title">The Law of Familiarity</div>
+    <div class="law-body">The more familiar a prospect is with you before you call, the less friction you face. A cold call to a total stranger faces maximum resistance. A call to someone who's seen your name twice, connected with you on LinkedIn, and read your email faces far less. Warm the cold call before you make it.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>15 minutes before each calling block (during Platinum Hours), send LinkedIn connection requests to your day's prospect list with a brief personal note. Not a pitch — just a name and context.</li>
+      <li>On the call, reference it: <strong>"I sent you a connection on LinkedIn yesterday — you may have seen my name."</strong> Familiar beats cold every single time.</li>
+      <li>Send a brief email the morning before you call: one sentence about why you're reaching out, one sentence about what you do, a note that you'll call that afternoon. Don't ask for anything. Just prime their recognition.</li>
+      <li>Follow company news, post relevant content in your space, engage with their company LinkedIn posts — all of this builds familiarity before your call. Strategic visibility reduces resistance.</li>
+    </ul>
+  </div>
+
+  <div class="law-card amber">
+    <div class="law-title">The Three B's — Be Brief. Be Bright. Be Gone.</div>
+    <div class="law-body">Prospects are busy and skeptical. Every extra second you stay on the line after your ask increases the chance they hang up. Your opener must be confident, sharp, and lead directly to your ask — in under 30 seconds. Anything more and you're filling silence with self-defeat.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>Time your opener with a stopwatch. From "Hi [Name]!" to your ask should be under 30 seconds. Practise until you hit it every single time without rushing.</li>
+      <li>Cut every filler word: "um," "so," "basically," "kind of," "just wanted to check in." These broadcast low confidence. Record yourself and count them. Eliminate them one by one.</li>
+      <li>After your ask — stop talking. Silence is your ally, not your enemy. The first person who speaks after the ask is in the weaker position. Train yourself to wait a full 5 seconds. It will feel like forever. Do it anyway.</li>
+      <li>Efficient calls get more respect. Prospects appreciate that you didn't waste their time. That respect translates into a more receptive audience when you call back.</li>
+    </ul>
+  </div>
+
+  <div class="law-card green">
+    <div class="law-title">The Law of Consistency — Show Up Every Day</div>
+    <div class="law-body">Inconsistency is the enemy of every salesperson. You cannot compensate for 3 days of not prospecting with one monster calling day. The pipeline doesn't work that way. Consistent daily output compounds. Sporadic bursts create feast-and-famine cycles.</div>
+    <div class="div"></div>
+    <ul class="steps">
+      <li>Elite reps do not have "good weeks" and "bad weeks" for prospecting effort. They have consistent weeks. Their number of dials barely varies. Their results vary, but their effort doesn't.</li>
+      <li>Build a non-negotiable daily minimum: the number of dials you will hit regardless of what else happens. Not a target — a floor. Your floor might be 30 dials. Never go below it. Some days you'll hit 60. Never go below 30.</li>
+      <li>Track your 30-day rolling average of dials. This smooths out the noise of good and bad days and shows you your true consistent output level. That number is your real productivity baseline.</li>
+      <li>The compounding effect: 40 dials a day × 22 working days = 880 dials per month. At an 8% connect rate, that's 70 conversations. At 25% appointment rate, that's 17–18 appointments. Every day you skip cuts into this compounding math.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════ TIME BLOCKING ═══════════ -->
+<div id="page-time" class="page">
+  <div class="section-head">
+    <h2>Time blocking — your daily operating system</h2>
+    <p>Time is your scarcest and most valuable resource. How you allocate it determines your results more than any skill or technique. Protect your Golden Hours with zero apology.</p>
+  </div>
+
+  <div class="two-col" style="margin-bottom:20px">
+    <div class="law-card gold" style="background:rgba(212,168,67,0.1);border-left:3px solid var(--gold)">
+      <div class="law-title" style="color:var(--gold2)">🥇 Golden Hours</div>
+      <div class="law-body">Revenue-generating activities only. Calls, conversations, meetings. If it doesn't advance a sale, it doesn't happen during Golden Hours.</div>
+      <div style="margin-top:8px"><span class="tag gold">8–10am</span> <span class="tag gold">4–6pm</span></div>
+    </div>
+    <div class="law-card" style="background:var(--bg3)">
+      <div class="law-title" style="color:var(--text2)">🏆 Platinum Hours</div>
+      <div class="law-body">Admin, research, CRM, email, LinkedIn outreach, list building. Anything that supports selling but isn't selling.</div>
+      <div style="margin-top:8px"><span class="tag gray">Before 7am</span> <span class="tag gray">After 6pm</span></div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(212,168,67,0.15);color:var(--gold2)"><i class="ti ti-calendar"></i></div>
+      <div class="acc-meta"><div class="acc-title">The ideal daily schedule — minute by minute</div><div class="acc-sub">Build this template before your first week</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="sched-row"><div class="sched-time">5:30–7:00am</div><div class="sched-act">Platinum: Build tomorrow's prospect list, research, CRM admin, email sequences, LinkedIn outreach for today's call list</div><div class="sched-type gray">Platinum</div></div>
+      <div class="sched-row"><div class="sched-time">7:30–7:45am</div><div class="sched-act">Pre-call ritual: Music → read your "why" → script review out loud → stand up, smile, breathe</div><div class="sched-type gray">Ritual</div></div>
+      <div class="sched-row"><div class="sched-time">8:00–10:00am</div><div class="sched-act">Golden Block 1: Cold calls only. A-tier prospects first. Phone on, everything else silent. No exceptions.</div><div class="sched-type gold">Golden</div></div>
+      <div class="sched-row"><div class="sched-time">10:00–11:00am</div><div class="sched-act">Follow-up on morning voicemails, log detailed call notes, schedule callbacks. This is still semi-golden.</div><div class="sched-type gray">Follow-up</div></div>
+      <div class="sched-row"><div class="sched-time">11:00–12:00pm</div><div class="sched-act">Platinum: LinkedIn engagement, email sequence touches, add new prospects to replace morning exits</div><div class="sched-type gray">Platinum</div></div>
+      <div class="sched-row"><div class="sched-time">12:00–1:00pm</div><div class="sched-act">Lunch. If you have a client meeting at 1pm, eat in the parking lot. Never skip lunch — your energy crashes.</div><div class="sched-type gray">Recovery</div></div>
+      <div class="sched-row"><div class="sched-time">1:00–3:30pm</div><div class="sched-act">Scheduled discovery calls, presentations, meetings — use pre-booked appointments in this window</div><div class="sched-type gold">Golden</div></div>
+      <div class="sched-row"><div class="sched-time">3:30–4:00pm</div><div class="sched-act">Prepare afternoon list, review morning voicemail callbacks, mental reset for second calling block</div><div class="sched-type gray">Prep</div></div>
+      <div class="sched-row"><div class="sched-time">4:00–6:00pm</div><div class="sched-act">Golden Block 2: Cold calls + callbacks from morning voicemails. Decision-makers are often more accessible late afternoon.</div><div class="sched-type gold">Golden</div></div>
+      <div class="sched-row"><div class="sched-time">6:00–7:00pm</div><div class="sched-act">Platinum: Full CRM update, tomorrow's call list ready, 3 wins written down, 30 mins sales education</div><div class="sched-type gray">Platinum</div></div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-shield"></i></div>
+      <div class="acc-meta"><div class="acc-title">Protecting your Golden Hours — the exact tactics</div><div class="acc-sub">Ongoing discipline · Non-negotiable</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-calendar-x"></i> How to defend your blocks from everyone — including yourself</div>
+        <ul class="steps">
+          <li>Block 8–10am and 4–6pm in your shared calendar as "Revenue Block — Unavailable." Label them clearly. Decline every non-emergency meeting request that falls inside these windows.</li>
+          <li>When a colleague interrupts: <strong>"I'm in a calling block — I'll catch you at 10."</strong> No apology, no guilt. You are doing the job that pays your bills. They will understand.</li>
+          <li>Put your phone on DND for all apps except the dialler. Every notification costs 20 minutes of mental recovery time, even if you only look at it for 3 seconds. This is not a metaphor — it's documented neuroscience.</li>
+          <li>Never check email during a Golden Hour. Email is reactive. Calling is proactive. Proactive activities always take priority over reactive ones.</li>
+          <li>Calculate what one Golden Hour is worth to you. If you target R50k/month on 160 hours, your hour is worth R312. Every wasted minute costs you R5.20. Put that number on your monitor.</li>
+          <li><strong>The Sunday Night Protocol:</strong> Every Sunday evening, spend 30 minutes confirming: Monday's call list is built, calendar blocks are protected, no Monday morning meetings scheduled, CRM is clean. Monday you walk in and dial at 8am sharp. Zero decision fatigue.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CALL FRAMEWORK ═══════════ -->
+<div id="page-framework" class="page">
+  <div class="section-head">
+    <h2>The 5-step telephone prospecting framework</h2>
+    <p>Every cold call you make follows this exact spine. No improvising on structure. You can vary the words — you cannot vary the sequence. The framework exists because it works. Deviate and your conversion rates will tell you the cost.</p>
+  </div>
+
+  <div class="step-seq">
+    <div class="step-row"><div class="step-num">1</div><div class="step-content"><div class="step-title">Get attention</div><div class="step-desc">First 5 seconds — everything depends on this</div></div><span class="tag red">0–5 sec</span></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-content"><div class="step-title">Identify yourself</div><div class="step-desc">Name, company — clear and confident, no apology</div></div><span class="tag red">5–8 sec</span></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-content"><div class="step-title">The bridge</div><div class="step-desc">Your reason for calling — about them, not you</div></div><span class="tag gold">8–20 sec</span></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-content"><div class="step-title">The ask</div><div class="step-desc">Specific time commitment — two options, then silence</div></div><span class="tag gold">20–25 sec</span></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-content"><div class="step-title">Handle the brush-off</div><div class="step-desc">Acknowledge, clarify, ask again — max twice</div></div><span class="tag teal">25–45 sec</span></div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-number-1"></i></div>
+      <div class="acc-meta"><div class="acc-title">Step 1 — Get attention in the first 5 seconds</div><div class="acc-sub">The first five seconds determine everything</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">What you say</div>
+        <div class="script-text">"Hi [Name]!" <em>← warm, upbeat, slight upward inflection — not a question, not flat</em></div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The exact mechanics of the opener</div>
+        <ul class="steps">
+          <li><strong>First name only.</strong> "Mr./Ms. [Surname]" telegraphs salesperson instantly. "[First Name]!" sounds like someone they know. The difference is massive.</li>
+          <li><strong>Inflection is critical.</strong> Practice saying "Hi [Name]!" in three ways: flat, questioning, and warm-confident. The warm-confident version is right between a statement and a question. Record all three. Use the third one every time.</li>
+          <li><strong>Pause 1 full second after their name.</strong> Let them register who's calling. Fill that second with silence, not more words. New reps barrel through this pause — don't.</li>
+          <li><strong>What NOT to say:</strong> "Hi, is this [Name]?" (sounds uncertain), "Hi [Name], how are you today?" (sounds like a telemarketer), "Hi [Name], do you have a minute?" (invites rejection before you've said anything).</li>
+          <li><strong>Physical state check:</strong> If you dialled while seated and slumped, they can hear it. Stand up, shoulders back, slight smile. This is not optional — it is acoustic performance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,127,212,0.15);color:#6AAFF0"><i class="ti ti-number-2"></i></div>
+      <div class="acc-meta"><div class="acc-title">Step 2 — Identify yourself with clarity and confidence</div><div class="acc-sub">8 seconds · No apology, no qualifier</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">What you say</div>
+        <div class="script-text">"This is [Your Name] with [Company Name]." <em>← period. Not a question. Not a pitch. Just facts.</em></div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The mechanics of self-identification</div>
+        <ul class="steps">
+          <li>State your name and company once. Clearly. Without rushing. New reps speed up on their company name because they're nervous — this makes it inaudible. Slow down specifically on the company name.</li>
+          <li>Do not add a tagline here: "...with XYZ, the leading provider of..." You'll lose them before the bridge. Save the value framing for step 3.</li>
+          <li>Do not say "I'm just [Name] from [Company]." The word "just" diminishes you. You're not "just" anyone. You're a professional with a purpose.</li>
+          <li>Practice this sentence specifically until you can deliver it calmly when you're nervous, rushed, or getting rejections back-to-back. This is the most stumbled-over sentence in cold calling.</li>
+          <li>Your name and company must be memorable after hearing them once. Slow, clear, and confident delivery makes this possible. Fast, nervous delivery makes them ask "sorry, who was that?" — which you want to avoid.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(26,173,160,0.15);color:var(--teal2)"><i class="ti ti-number-3"></i></div>
+      <div class="acc-meta"><div class="acc-title">Step 3 — The bridge: your reason for calling</div><div class="acc-sub">Make it about them — not you</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">Bridge template 1 — Pain-based</div>
+        <div class="script-text">"I work with [type of companies] to help them [specific outcome]. We've found that [industry] companies typically face [specific pain] — and we've built something that addresses that directly."</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">Bridge template 2 — Referral or research</div>
+        <div class="script-text">"[Mutual contact / I was looking at your company] — [one specific thing you noticed]. I thought there might be a relevant conversation here."</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">Bridge template 3 — Social proof</div>
+        <div class="script-text">"We've recently worked with [similar company name] to [specific outcome they achieved]. Given what you're doing at [their company], I thought this might be worth a conversation."</div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The rules of the bridge</div>
+        <ul class="steps">
+          <li>Write 3 bridges for your product today. One pain-based, one outcome-based, one specific-to-them. Rotate them across your calling days to find what resonates best with your ICP.</li>
+          <li>Never say "I wanted to introduce myself." That's about you. The bridge must be entirely about them — their pain, their outcome, their industry, their company.</li>
+          <li>Spend 90 seconds researching each prospect before the call. One LinkedIn glance: What's their title? What does their company do? Any recent news? Use one of these in the bridge to show you're not dialling randomly.</li>
+          <li>The bridge is NOT a pitch. It's a reason why this call makes sense for them. 1–2 sentences maximum. If you're still bridging at 30 seconds, you've turned it into a monologue and lost them.</li>
+          <li>Specificity is everything. "I work with technology companies" is weak. "I work with Series B SaaS companies with 50–200 employees to reduce churn in their first 90 days" is specific. Specificity builds instant credibility.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(212,168,67,0.15);color:var(--gold2)"><i class="ti ti-number-4"></i></div>
+      <div class="acc-meta"><div class="acc-title">Step 4 — The ask: the most important sentence on the call</div><div class="acc-sub">Two choices · Then silence · Non-negotiable</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">The ask — always two specific options</div>
+        <div class="script-text">"I'd love to set up a 20-minute call to [specific purpose]. Are you free Tuesday at 10am or would Wednesday at 2pm work better for you?"</div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The science of the ask</div>
+        <ul class="steps">
+          <li><strong>Always offer two specific times.</strong> Not "whenever works for you" — this puts all the cognitive burden on them and produces "I'll check and get back to you" (which means never). Two options force a simple binary choice.</li>
+          <li><strong>Keep the commitment small: "20 minutes."</strong> Easy to say yes to. You can always extend to 45 if the conversation is hot. Getting them to say yes to 20 is the goal. Asking for an hour at the first meeting raises the barrier.</li>
+          <li><strong>After you ask — go completely silent.</strong> This is the hardest discipline in cold calling. New reps fill the silence because it feels like something's wrong. Nothing is wrong. They're thinking. Let them think. The first person who speaks after the ask is in the weaker position.</li>
+          <li><strong>Practice silence with a partner.</strong> Have them ask you for something and practice sitting in silence for 5 full seconds. Record and time it. 5 seconds in a real call feels like 30 seconds. You have to train for this specifically.</li>
+          <li>What you're asking for is a conversation — not a sale. Frame it that way. "I'm not asking you to buy anything — I'm asking for 20 minutes to see if there's a conversation worth having."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,184,112,0.15);color:var(--green)"><i class="ti ti-number-5"></i></div>
+      <div class="acc-meta"><div class="acc-title">Step 5 — Handle the brush-off: the first "no" is almost never real</div><div class="acc-sub">Acknowledge, redirect, ask once more — then respect</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">"Not interested" response</div>
+        <div class="script-text">"I completely understand — most people I speak with say the same thing before we've had a chance to connect. All I'm asking for is 20 minutes. If it's not a fit, I'll tell you myself. Does [specific day] work?"</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">"Send me some info" response</div>
+        <div class="script-text">"Happy to. So I send you exactly the right thing — what's most relevant for you right now: [option A] or [option B]? And let me grab a time to walk through it with you — does [day] or [other day] work?"</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">"I'm too busy" response</div>
+        <div class="script-text">"I respect your time — that's exactly why I keep this to 20 minutes. Is [specific day] better or [other specific day]?"</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">"We already have a vendor" response</div>
+        <div class="script-text">"Great — most of the companies I work with had someone too. They brought me in because [specific gap or reason]. Worth 20 minutes to see if there's something we could add?"</div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The discipline of step 5</div>
+        <ul class="steps">
+          <li><strong>Never argue with the brush-off.</strong> Acknowledge it first, every single time. "I understand" or "I hear you" before anything else. Acknowledgment is not agreement — it's emotional credibility.</li>
+          <li><strong>Never say "but" after acknowledging.</strong> "I understand, but..." negates everything that came before it. Use "and" or pause before your redirect. "I completely understand. Most people tell me the same thing. All I'm asking for is 20 minutes."</li>
+          <li><strong>You get exactly two asks per call.</strong> Not three. Two. If they decline twice, thank them professionally and end the call. Never beg. Never argue. Never guilt-trip. Dignity in every call — even the ones that say no.</li>
+          <li><strong>The "send me info" trap:</strong> Never just send info and wait. That's 95% dead. Always convert it to an appointment: "I'll send that right after our call — let me also grab a time to walk through it with you. Does [day] work?"</li>
+          <li>Drill your 8 most common brush-offs with a partner until your response comes within 2 seconds, sounds natural, and ends with an ask. Hesitation in step 5 is fatal. Fluency converts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ VOICE & TONALITY ═══════════ -->
+<div id="page-voice" class="page">
+  <div class="section-head">
+    <h2>Voice & tonality — the hidden close</h2>
+    <p>In a cold call, you have no face, no body language, no visual presence. You have one asset: your voice. How you use it determines whether prospects stay on the line, like you, trust you, and agree to meet. This is not optional polish — it is the core skill of telephone selling.</p>
+  </div>
+
+  <div class="big-quote">
+    <p>"On the phone, your voice IS your handshake, your suit, your office, and your smile. Master it and you master the call."</p>
+    <cite>— Jeb Blount</cite>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(139,92,246,0.15);color:#B08FF8"><i class="ti ti-microphone"></i></div>
+      <div class="acc-meta"><div class="acc-title">The 5 dimensions of voice you must master</div><div class="acc-sub">Record yourself on every session until all 5 are natural</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="two-col">
+        <div class="block">
+          <div class="block-title" style="color:var(--gold2)"><i class="ti ti-wave-square"></i> Pace</div>
+          <ul class="steps">
+            <li>Speak 20% slower than you think you need to. Nervous reps rush. Slow pace signals confidence.</li>
+            <li>Slow down on key words: your company name, their company name, your ask. These words must land clearly.</li>
+            <li>Match their pace after rapport is established — pacing too slow when they speak fast creates friction. Mirror gradually.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <div class="block-title" style="color:var(--gold2)"><i class="ti ti-volume"></i> Volume & energy</div>
+          <ul class="steps">
+            <li>Project slightly more volume than a normal conversation. You want to sound awake, alert, and worth listening to.</li>
+            <li>Stand up to increase natural volume and energy. Sitting slumped reduces both measurably.</li>
+            <li>Drop volume slightly when you're about to say something important — it creates emphasis through contrast.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <div class="block-title" style="color:var(--teal2)"><i class="ti ti-trending-up"></i> Inflection</div>
+          <ul class="steps">
+            <li>Flat delivery kills calls. Vary your pitch — go up on interesting points, come down on confident statements.</li>
+            <li>Avoid upward inflection on statements. "I work with tech companies?" sounds uncertain. "I work with tech companies." — period. End your sentences going down when you're stating something confident.</li>
+            <li>Use a slight upward inflection on questions to signal genuine curiosity, not interrogation.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <div class="block-title" style="color:var(--teal2)"><i class="ti ti-pause"></i> Strategic silence</div>
+          <ul class="steps">
+            <li>Use silence after your ask. 3–5 seconds minimum. Train yourself to sit in it without filling it.</li>
+            <li>Use silence after they say something interesting: "Hmm..." [2 second pause] signals you're thinking, not scripted.</li>
+            <li>Silence after an objection signals confidence, not confusion. It buys you thinking time and shows you're not rattled.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title" style="color:var(--accent2)"><i class="ti ti-mood-smile"></i> Warmth — the most underestimated dimension</div>
+        <ul class="steps">
+          <li>Smile before you dial. Your larynx literally changes shape when you smile — your voice sounds warmer, more trustworthy, more approachable. Record yourself both ways and compare. The difference is dramatic.</li>
+          <li>Genuine curiosity warms your voice. Before you dial, think: "I'm genuinely curious about this person's business." Not scripted interest — real interest. It changes how you sound.</li>
+          <li>Say the prospect's first name once near the start and once near the close. People respond to their name. More than once feels manipulative. Twice feels personal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,184,112,0.15);color:var(--green)"><i class="ti ti-check"></i></div>
+      <div class="acc-meta"><div class="acc-title">Vocal do's and don'ts — the complete guide</div><div class="acc-sub">Print this. Study it. Eliminate the don'ts one by one.</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="tone-grid">
+        <div class="tone-card do">
+          <div class="tone-head do">✓ Do these</div>
+          <div class="tone-item">Smile before every single dial</div>
+          <div class="tone-item">Stand up during calling blocks</div>
+          <div class="tone-item">Pause after the ask (5 seconds)</div>
+          <div class="tone-item">End statements with downward inflection</div>
+          <div class="tone-item">Slow down on names and key phrases</div>
+          <div class="tone-item">Say their first name naturally, once or twice</div>
+          <div class="tone-item">Use full sentences, not bullet fragments</div>
+          <div class="tone-item">Breathe deeply before dialling</div>
+          <div class="tone-item">Record every session and self-review</div>
+          <div class="tone-item">Match their energy on the upswing</div>
+        </div>
+        <div class="tone-card dont">
+          <div class="tone-head dont">✗ Never do these</div>
+          <div class="tone-item">Say "sorry to bother you"</div>
+          <div class="tone-item">Say "just calling to..." or "just wanted to..."</div>
+          <div class="tone-item">Rush through your company name</div>
+          <div class="tone-item">Use upward inflection on statements</div>
+          <div class="tone-item">Fill silence after the ask</div>
+          <div class="tone-item">Use filler words: um, so, basically, kind of</div>
+          <div class="tone-item">Say "do you have a minute?" as an opener</div>
+          <div class="tone-item">Let rejection show in your voice on the next dial</div>
+          <div class="tone-item">Match their angry or dismissive energy</div>
+          <div class="tone-item">Talk faster when nervous (opposite: slow down)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-microphone-2"></i></div>
+      <div class="acc-meta"><div class="acc-title">The voice training protocol — how to build these skills fast</div><div class="acc-sub">Daily practice · 30 days to measurable improvement</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-record"></i> The daily recording practice</div>
+        <ul class="steps">
+          <li><strong>Record every calling session.</strong> Most diallers allow this. If not, use a second device. Listen to 3–5 calls after each session. This is uncomfortable. Do it anyway — it's the fastest feedback loop that exists.</li>
+          <li><strong>What to listen for:</strong> filler words, pace (too fast?), inflection on statements (going up when it should go down?), silence after the ask (did you hold it?), warmth (did you sound like someone you'd want to talk to?).</li>
+          <li><strong>Daily warm-up:</strong> Before your first block, record yourself reading your script standing up, smiling, at the pace you want on real calls. Play it back. Adjust. Dial.</li>
+          <li><strong>Partner drill (weekly):</strong> One person plays prospect, one plays rep. Throw random objections. Rep must hold frame, acknowledge, redirect, ask again — in 30 seconds. Time it. 15 minutes per week of this is worth 50 hours of cold calling experience.</li>
+          <li><strong>Listen to elite reps:</strong> Sales Gravy YouTube channel. Listen to Jeb's own cold calls. Study the pacing, the silences, the warmth. Then replicate it deliberately, not by accident.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ VOICEMAIL & EMAIL ═══════════ -->
+<div id="page-voicemail" class="page">
+  <div class="section-head">
+    <h2>Voicemail & email — multiplying your touch points</h2>
+    <p>Most reps treat voicemail as a graveyard. Elite reps treat it as a weapon. Combined with a strategic email sequence, voicemail doubles your callback rate and warms every subsequent call. Here's how to make every single message count.</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(139,92,246,0.15);color:#B08FF8"><i class="ti ti-voicemail"></i></div>
+      <div class="acc-meta"><div class="acc-title">The power voicemail formula — under 30 seconds always</div><div class="acc-sub">Every second over 30 reduces callback rate</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">Voicemail template A — Pain-based</div>
+        <div class="script-text">"Hi [Name], this is [Your Name] with [Company]. I'm calling because we've been working with [relevant type of company] to [specific outcome], and I thought it might be worth a conversation. I'll try you again [specific day], but if you'd prefer to reach me first, I'm at [number] — [repeat number slowly]. Again, [Your Name], [Company]. Talk soon."</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">Voicemail template B — Curiosity-based</div>
+        <div class="script-text">"Hi [Name], [Your Name] with [Company]. I have some information I think would be genuinely relevant to what you're working on at [their company]. I'll call back [specific day] — or if you'd prefer to talk sooner, I'm at [number] — [number slowly]. Looking forward to it."</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">Voicemail template C — Referral or trigger</div>
+        <div class="script-text">"Hi [Name], this is [Your Name] from [Company]. [Mutual contact] suggested I reach out — [one sentence why]. I'll try you again [specific day], but you can also reach me at [number] — [repeat slowly]. Thanks, [Your Name]."</div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The 7 rules of an elite voicemail</div>
+        <ul class="steps">
+          <li><strong>Under 30 seconds, always.</strong> Time every voicemail. If you go over, they will delete it before you finish. Practice until you land under 28 seconds every time.</li>
+          <li><strong>State your number twice.</strong> Once at a normal speaking pace, once slowly. Most people don't replay voicemails — they write the number down while it's playing. If they miss it, you've lost the callback opportunity.</li>
+          <li><strong>Sound confident and busy.</strong> You're a professional with valuable information, not someone hoping for a callback. Your tone should say "I have something worth your time" not "please call me back."</li>
+          <li><strong>Always tell them when you'll call back:</strong> "I'll try you again Thursday." This primes them for your next call (Thursday's call is now warmer), and signals persistence without desperation.</li>
+          <li><strong>Never ask them to "give you a call when you get a chance."</strong> This creates zero urgency. Give them a specific reason that matters to them, and then tell them you'll follow up.</li>
+          <li><strong>Vary your voicemail message across touchpoints.</strong> If they hear the same message 3 times, they'll assume it's automated and stop listening. Each voicemail should have a different angle or reason for calling.</li>
+          <li><strong>Leave voicemails at the end of your calling block.</strong> Don't use Golden Hours for voicemail-only rounds. Make live call attempts first, then leave voicemails for no-answers at the end.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,127,212,0.15);color:#6AAFF0"><i class="ti ti-mail"></i></div>
+      <div class="acc-meta"><div class="acc-title">Cold email that complements your calls</div><div class="acc-sub">5 sentences max · Platinum Hours only · Never instead of calling</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">Cold email template — 5 sentences max</div>
+        <div class="script-text">Subject: [Specific pain or outcome] — [Company Name]<br><br>[Name] — I work with [type of company] to [specific outcome]. Companies like [relevant reference] typically see [specific result]. I'd like to explore whether it makes sense to do the same for [their company]. Are you available for a 20-minute call [specific day] or [specific day]?<br>— [Your Name]</div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">Email template — "I called you" sequence</div>
+        <div class="script-text">Subject: [Topic relevant to them]<br><br>[Name] — I tried you [yesterday/earlier this week] — you may have seen my missed call. I work with [type of company] on [specific pain] and thought you'd be worth talking to. [Specific result you create]. Worth 20 minutes? — [Your Name]</div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> Cold email rules — non-negotiable</div>
+        <ul class="steps">
+          <li><strong>5 sentences maximum.</strong> Long emails don't get read by busy executives. Emails that look easy to reply to, do. Keep it short enough to read in one breath.</li>
+          <li><strong>Subject line specificity is everything.</strong> "Quick question re: your Q3 hiring plans" beats "Partnership opportunity." Generic subjects get deleted. Specific, relevant subjects get opened.</li>
+          <li><strong>The email's only job is to get a reply or warm up your next call.</strong> It is not a pitch. Do not try to sell in an email. Sell the conversation, not the product.</li>
+          <li><strong>Always reference your last call attempt:</strong> "I called you Monday — you may have seen my number." This converts a cold email into a follow-up, which is dramatically more effective.</li>
+          <li><strong>Follow up on every email with a call reference on your next dial:</strong> "I sent you an email Wednesday about [subject] — did it reach you?" This creates a warm bridge into the call.</li>
+          <li><strong>Email is multi-channel ammunition — not a replacement for calls.</strong> If you're emailing instead of calling, you're avoiding. Email supports your calls; calls don't support your emails.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CADENCE ═══════════ -->
+<div id="page-cadence" class="page">
+  <div class="section-head">
+    <h2>Multi-channel prospecting cadence</h2>
+    <p>Single-channel outreach converts at a fraction of multi-channel. Most decision-makers need 5–8 touchpoints before they engage. A structured cadence delivers those touchpoints systematically across every channel. This is the difference between a rep and a professional.</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-calendar-event"></i></div>
+      <div class="acc-meta"><div class="acc-title">The 14-day 8-touch sequence — per prospect</div><div class="acc-sub">Track every touch in your CRM</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--sm-r);padding:14px">
+        <div class="cadence-day"><div class="cad-num">1</div><div class="cad-channel"><span class="ch-pill call">CALL</span><span class="ch-pill vm">VOICEMAIL</span></div><div class="cad-action">Attempt + voicemail if no answer. Use pain-based bridge. Leave voicemail template A.</div></div>
+        <div class="cadence-day"><div class="cad-num">2</div><div class="cad-channel"><span class="ch-pill email">EMAIL</span></div><div class="cad-action">Reference the call: "I tried you yesterday..." — 5 sentences, specific subject, appointment ask at the end.</div></div>
+        <div class="cadence-day"><div class="cad-num">3</div><div class="cad-channel"><span class="ch-pill call">CALL</span></div><div class="cad-action">Reference the email: "I sent you an email Tuesday — did it reach you?" Different bridge angle from Day 1.</div></div>
+        <div class="cadence-day"><div class="cad-num">5</div><div class="cad-channel"><span class="ch-pill li">LINKEDIN</span></div><div class="cad-action">Connection request with personal note: why you're connecting, what you do for companies like theirs. No pitch yet.</div></div>
+        <div class="cadence-day"><div class="cad-num">7</div><div class="cad-channel"><span class="ch-pill call">CALL</span><span class="ch-pill vm">VOICEMAIL</span></div><div class="cad-action">"I've been persistent because I genuinely see a fit here." Use outcome-based bridge. Voicemail template B.</div></div>
+        <div class="cadence-day"><div class="cad-num">9</div><div class="cad-channel"><span class="ch-pill email">EMAIL</span></div><div class="cad-action">Completely different angle — new pain point, a case study, or relevant industry insight. Never repeat the same email.</div></div>
+        <div class="cadence-day"><div class="cad-num">11</div><div class="cad-channel"><span class="ch-pill call">CALL</span></div><div class="cad-action">Final outreach attempt this cycle. State that clearly if they pick up: "I've tried a few times — I'll make this brief."</div></div>
+        <div class="cadence-day"><div class="cad-num">14</div><div class="cad-channel"><span class="ch-pill break">BREAK-UP</span></div><div class="cad-action">Break-up email: "I'll stop reaching out — clearly the timing isn't right. If that changes, I'm here." Often generates replies.</div></div>
+      </div>
+      <div class="block" style="margin-top:10px">
+        <div class="block-title"><i class="ti ti-alert-circle"></i> Critical rules for each touch</div>
+        <ul class="steps">
+          <li><strong>Every touch has a different angle.</strong> Pain point, outcome, case study, market insight, seasonal relevance. Never leave the same message twice. If you're repeating yourself, you're not adding value — you're becoming noise.</li>
+          <li><strong>Never reference failure.</strong> Don't say "I've been trying to reach you" — signals desperation. Instead: "I reached out last week with some information I wanted to share." Frame each contact as fresh intent, not accumulated failure.</li>
+          <li><strong>After 8 touches with zero response:</strong> move to C-tier or remove. Don't ghost-haunt. Some prospects will never engage no matter how good your outreach. Know when to replace them with fresh prospects (Law of Replacement).</li>
+          <li><strong>Track every touch in your CRM:</strong> date, channel, message used, outcome. After 90 days, your data tells you which touchpoints in your cadence convert the most. Optimise based on real numbers, not intuition.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(26,173,160,0.15);color:var(--teal2)"><i class="ti ti-brand-linkedin"></i></div>
+      <div class="acc-meta"><div class="acc-title">LinkedIn as a prospecting channel — the strategic approach</div><div class="acc-sub">Not social media — a prospecting tool</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> LinkedIn actions that actually generate pipeline</div>
+        <ul class="steps">
+          <li><strong>Pre-call connection:</strong> The day before you call someone, send a connection request with a note. "Hi [Name] — I work with [type of company] on [relevant thing]. I'll reach out tomorrow." 15 minutes of this before a calling block warms every call that day.</li>
+          <li><strong>Message instead of InMail when connected:</strong> Once they accept, send a LinkedIn message the same day: "Thanks for connecting — as I mentioned, I'll be in touch briefly about [topic]." This creates familiarity before the call.</li>
+          <li><strong>Engage with their content first:</strong> Before connecting with key prospects, like or comment on 1–2 of their posts. A thoughtful comment (not generic) makes your name familiar. When you then connect, they'll remember seeing you.</li>
+          <li><strong>Content positions you:</strong> Post one relevant, valuable piece of content per week in your industry. When prospects look you up (and they will), they see a knowledgeable professional, not an empty profile. This reduces friction on every call.</li>
+          <li><strong>LinkedIn is Platinum Hours work.</strong> Never spend Golden Hours on LinkedIn. Connection requests, messages, and engagement — all done before 7am or after 6pm. Golden Hours are for live conversations only.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ OBJECTIONS ═══════════ -->
+<div id="page-objections" class="page">
+  <div class="section-head">
+    <h2>Objection handling — the 5-step turnaround</h2>
+    <p>You cannot argue a prospect out of an objection. The harder you push, the deeper they dig in. The only way through is to acknowledge, get curious, and gently redirect. Objections are not walls — they're doors. Here is exactly how to open them.</p>
+  </div>
+
+  <div class="big-quote">
+    <p>"The number one reason salespeople fail to convert objections is that they respond before they understand. Listen first. Understand second. Respond third."</p>
+    <cite>— Jeb Blount</cite>
+  </div>
+
+  <div class="step-seq" style="margin-bottom:20px">
+    <div class="step-row"><div class="step-num">1</div><div class="step-content"><div class="step-title">Pause & breathe</div><div class="step-desc">2 full seconds. Don't react. Let your brain catch up to your mouth.</div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-content"><div class="step-title">Acknowledge</div><div class="step-desc">"I completely understand." / "That makes a lot of sense." Not "but" — use "and" or pause.</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-content"><div class="step-title">Clarify</div><div class="step-desc">"Help me understand — when you say [X], what specifically concerns you?" Find the real objection.</div></div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-content"><div class="step-title">Respond</div><div class="step-desc">Address the REAL objection — not the surface one. One strong point, not five weak ones.</div></div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-content"><div class="step-title">Ask again</div><div class="step-desc">"Given that, does it make sense to spend 20 minutes together?" Max two asks total. Then respect it.</div></div></div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"Not interested."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"I completely understand — most people I talk to feel the same way before we've had a chance to connect. All I'm asking for is 20 minutes. If it's not a fit, I'll tell you myself. Does [specific day] work?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You normalise their resistance ("most people"), reduce the ask ("20 minutes"), remove the risk ("I'll tell you"), and go straight to the calendar. You never argued the "not interested" — you bypassed it.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"Send me some information."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"Happy to. So I send you exactly the right thing — what's most relevant to you right now: [option A] or [option B]? And let me grab a time to walk through it with you — does [day] or [other day] work?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You agree (removes friction), ask a qualifying question (shows you're not generic), and immediately convert the info send into an appointment. Never send info and wait. That's 95% dead. Always pair the send with a calendar ask.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"I'm too busy right now."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"I completely respect that — that's exactly why I keep this to 20 minutes. Is [specific day] better or [other specific day]? I'll make sure we're out in 20."</div>
+      <div class="obj-why"><strong>Why this works:</strong> You validate their time constraint, then use it as your proof point. "20 minutes" is the answer to "too busy." You're not ignoring the objection — you're solving it.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"We already have a vendor / we're happy with who we use."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"That's great to hear — most of the companies I work with had someone they were happy with too. They brought me in because [specific gap your solution fills]. Worth 20 minutes to see if there's something we could add to what you already have?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You validate their loyalty ("great to hear"), normalise the situation ("most companies"), identify a specific gap, and frame it as additive — not a rip-and-replace, which is threatening.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"We don't have budget for this."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"I hear you — budget is always a real consideration. Help me understand: is budget a constraint right now, or is it more that you haven't seen enough to justify exploring it? I'm not asking you to spend anything — just 20 minutes to see if this is even relevant."</div>
+      <div class="obj-why"><strong>Why this works:</strong> Budget objections early in a cold call are almost always not about budget — they're about trust and relevance. This response clarifies whether it's a real constraint or a brush-off, and refocuses on zero-risk exploration.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"Call me back in 6 months / not right now."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"Absolutely. Can I ask — is there something specific happening around that time that makes it a better moment? [Listen.] Got it. I'll put [specific date] in my calendar and reach out then. Can I send you something brief in the meantime to keep you posted?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You get intel on their timeline, you book a firm callback date in their awareness, and you stay in the picture with a low-threat touchpoint. Never just say "sure, talk then" — that call in 6 months will be cold again.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"I'm not the decision-maker."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"Thanks for telling me — who would be the right person to speak with about [specific topic]? And would you be comfortable making a brief introduction, or should I reach out to them directly?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You don't argue or try to convince them to become the champion. You get the name, and you give them a graceful way to help you — an introduction. Many will do it. And now you have a warm referral instead of a cold call.</div>
+    </div>
+  </div>
+
+  <div class="obj-card">
+    <div class="obj-trigger">"I've never heard of your company."</div>
+    <div class="obj-response">
+      <div class="obj-response-label">✓ What to say</div>
+      <div class="obj-response-text">"Completely understandable — we're not everywhere yet. We work specifically with [your niche], and we've done [specific result] for companies like [reference]. That's actually why I'm calling — 20 minutes might change that. Does [day] or [day] work?"</div>
+      <div class="obj-why"><strong>Why this works:</strong> You acknowledge the gap in awareness (don't be defensive), pivot to specificity and a credible result, and reframe the unfamiliarity as an opportunity rather than a liability.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ GATEKEEPERS ═══════════ -->
+<div id="page-gatekeeper" class="page">
+  <div class="section-head">
+    <h2>Gatekeeper mastery — getting to the decision-maker</h2>
+    <p>The gatekeeper is not your enemy. They are a professional doing their job. The reps who fight gatekeepers lose. The reps who respect, engage, and earn their way through — win. Here is the complete playbook.</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(212,168,67,0.15);color:var(--gold2)"><i class="ti ti-door-enter"></i></div>
+      <div class="acc-meta"><div class="acc-title">The mindset shift — gatekeepers are allies, not obstacles</div><div class="acc-sub">Change this first or no tactic will work</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> How to think about and treat gatekeepers</div>
+        <ul class="steps">
+          <li>Never be rude, impatient, or dismissive. Gatekeepers talk to their executives constantly. A rude rep is reported. A respectful, professional rep is sometimes put through or given direct information.</li>
+          <li>Learn their name. Call back and use it: "Hi Sarah, it's [Your Name] again — I spoke with you last week." Name recognition creates a relationship that benefits you over time.</li>
+          <li>Be straightforward about who you are. Trying to sneak through, being deceptive about your purpose, or pretending to have a relationship you don't have — these all backfire and burn the account.</li>
+          <li>Treat them as the important professional they are: "I know you're protecting [executive's] time — I appreciate that. I'll be brief about why I'm calling."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-phone-incoming"></i></div>
+      <div class="acc-meta"><div class="acc-title">Gatekeeper scripts — word for word</div><div class="acc-sub">Six scenarios with exact language</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="script-box">
+        <div class="script-label">When they ask "What's this regarding?"</div>
+        <div class="script-text">"I'm calling to speak with [Name] about [specific, business-relevant topic]. Is he/she available?"<br><br><em>← Be specific. Vague answers increase friction. Don't say "it's personal" — that's deceptive and they know it.</em></div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">When they ask "Are you selling something?"</div>
+        <div class="script-text">"I work with [type of company] on [specific area]. I have some information I believe would be relevant to [executive's name]. Is he/she available for a brief call?"<br><br><em>← Don't deny what you do. Reframe it around value and relevance, not selling.</em></div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">When they say "He's not available, can I take a message?"</div>
+        <div class="script-text">"Yes, please tell him/her [Your Name] from [Company] called about [specific topic]. I'll also try again [specific day]. What's the best time to reach him/her directly?"<br><br><em>← Always ask for the best time. You'll often get it. This turns your next call into a warm, expected contact.</em></div>
+      </div>
+      <div class="script-box">
+        <div class="script-label">When they say "He doesn't take cold calls"</div>
+        <div class="script-text">"I completely understand — I'll keep it very brief. This is specifically about [very specific relevant topic]. Could you let him/her know I called? I'll try again [day]."<br><br><em>← Don't argue. Accept graciously, leave a specific message, commit to calling back. Persistence over time is your weapon.</em></div>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-key"></i> Advanced gatekeeper strategies</div>
+        <ul class="steps">
+          <li><strong>Call before 8am or after 5:30pm.</strong> Executives often answer their own phones outside of business hours. Gatekeepers are not there. This is the most effective tactic for hard-to-reach executives.</li>
+          <li><strong>Get the direct dial:</strong> "Is there a direct number I can reach [Name] on in the future?" You'll get it more often than you'd expect, especially after you've established rapport with the gatekeeper.</li>
+          <li><strong>Call from a different number:</strong> Some gatekeepers screen your number. Using a mobile or different office line resets the screen. Not deception — just practical.</li>
+          <li><strong>LinkedIn bypass:</strong> Many executives who are unreachable by phone respond to a well-crafted LinkedIn message. Use this as an additional channel, not a replacement for calling.</li>
+          <li><strong>Build a relationship over time:</strong> If you call a gatekeeper repeatedly across weeks, they start to recognise you. Consistent, professional persistence sometimes leads them to advocate for you: "I've been speaking with [rep] — he seems legitimate, would you like me to put him through next time?"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SALES EQ ═══════════ -->
+<div id="page-eq" class="page">
+  <div class="section-head">
+    <h2>Sales EQ — emotional intelligence as competitive edge</h2>
+    <p>Technical skill gets you in the door. Emotional intelligence closes it. The reps who consistently outperform their peers aren't always the best at product knowledge or even technique — they're the ones who make prospects feel understood, respected, and valued. That's a trainable skill.</p>
+  </div>
+
+  <div class="eq-pillar">
+    <div class="eq-card">
+      <div class="eq-icon">🔍</div>
+      <div class="eq-title">Self-awareness</div>
+      <div class="eq-body">Know your emotional triggers. What makes you rush? What makes you over-explain? Fear of silence? Annoyance when interrupted? These patterns cost you calls and you don't even know it.</div>
+    </div>
+    <div class="eq-card">
+      <div class="eq-icon">🧘</div>
+      <div class="eq-title">Self-management</div>
+      <div class="eq-body">When a prospect is rude, your instinct is to match their energy or get defensive. Do the opposite: get calmer, warmer, and slower. Non-complementary behaviour disarms aggression.</div>
+    </div>
+    <div class="eq-card">
+      <div class="eq-icon">👁️</div>
+      <div class="eq-title">Social awareness</div>
+      <div class="eq-body">On every call, read the signals: pace changes, tone drops, sighs, short answers. When you hear hesitation, stop pitching and ask what's on their mind. The real conversation starts there.</div>
+    </div>
+    <div class="eq-card">
+      <div class="eq-icon">🤝</div>
+      <div class="eq-title">Relationship management</div>
+      <div class="eq-body">Every call ends with a defined next step. Every interaction leaves them feeling heard. Remember personal details. Reference them next time. People buy from people who make them feel known.</div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(139,92,246,0.15);color:#B08FF8"><i class="ti ti-mood-smile"></i></div>
+      <div class="acc-meta"><div class="acc-title">Likeability — your most underestimated asset on a cold call</div><div class="acc-sub">The first 30 seconds decide 80% of the outcome</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> Specific actions that make you likeable instantly</div>
+        <ul class="steps">
+          <li><strong>Smile before you dial.</strong> The difference in your voice is measurable. Record yourself both ways and listen to the contrast. Use the smiling version every single time.</li>
+          <li><strong>Use their name strategically:</strong> once near the start ("Hi [Name]!") and once near the close ("Given what you've told me, [Name]..."). More than twice sounds manipulative. Twice feels personal and warm.</li>
+          <li><strong>Be genuinely curious about them.</strong> Ask one question about their world before you pitch anything: "What's your biggest challenge with [relevant area] right now?" Then actually listen to the full answer without interrupting or steering.</li>
+          <li><strong>Never talk over them.</strong> The moment you interrupt, you break trust. If they start talking, stop. Even if they're saying something you desperately want to respond to. Let them finish completely.</li>
+          <li><strong>Match their vocabulary.</strong> If they use technical jargon, match it. If they speak simply, simplify. Mismatched vocabulary creates unconscious distance. Matched vocabulary creates unconscious connection.</li>
+          <li><strong>Validate their experience:</strong> "That makes a lot of sense given what you're dealing with." Not flattery — genuine validation of their reality. People relax when they feel understood.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(232,52,26,0.15);color:var(--accent2)"><i class="ti ti-brain"></i></div>
+      <div class="acc-meta"><div class="acc-title">Handling rejection without letting it compound</div><div class="acc-sub">The mental discipline of high-volume cold calling</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The reset protocol — after rejection streaks</div>
+        <ul class="steps">
+          <li><strong>Rejection is neutral data.</strong> They rejected the timing, the interruption, the moment — not you. You are not your call. Repeat this until it's automatic.</li>
+          <li><strong>After a string of rejections, physically reset:</strong> Stand up, shake out your hands and arms, take 3 deep breaths. This is neurological pattern-interruption. It works. It is not optional.</li>
+          <li><strong>Never carry the energy of one call into the next.</strong> When you hang up on a rejection, that call is over. The next call has zero knowledge of what just happened. Dial fresh every time.</li>
+          <li><strong>Track your "record rejection streak."</strong> If your worst day had 12 consecutive rejections before a connect, knowing that makes the 8th rejection feel manageable instead of catastrophic. Context reduces suffering.</li>
+          <li><strong>The antidote to a bad block is more dials, not fewer.</strong> When a block is going badly, the instinct is to stop. Do the opposite. Stay in the block. Your statistics will normalise over volume. Five bad calls followed by two great ones still make you money.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PIPELINE ═══════════ -->
+<div id="page-pipeline" class="page">
+  <div class="section-head">
+    <h2>Pipeline management — the prospecting pyramid</h2>
+    <p>Your pipeline is not just a list — it's a living system. It requires daily maintenance, consistent replenishment, and strategic prioritisation. Neglect any one of these and your pipeline becomes a fiction.</p>
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric-box"><div class="metric-val" style="color:var(--accent2)">A</div><div class="metric-lbl">Highest probability — call first, every day</div></div>
+    <div class="metric-box"><div class="metric-val" style="color:var(--gold2)">B</div><div class="metric-lbl">Possible — nurture 2–3× per week</div></div>
+    <div class="metric-box"><div class="metric-val" style="color:var(--text2)">C</div><div class="metric-lbl">Long-term seed — weekly or less</div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,184,112,0.15);color:var(--green)"><i class="ti ti-list-check"></i></div>
+      <div class="acc-meta"><div class="acc-title">Build your ICP and prospect list the right way</div><div class="acc-sub">Platinum Hours · Done before your calling block</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-target"></i> Defining your Ideal Customer Profile (ICP)</div>
+        <ul class="steps">
+          <li><strong>Define before you list-build.</strong> Industry? Company size (employees or revenue)? Geography? Title of decision-maker? Typical pain points? Every prospect on your list must match this profile — no exceptions.</li>
+          <li>Without a defined ICP, you're broadcasting noise. With one, every dial hits someone who has the problem you solve. The difference in conversion rates is dramatic.</li>
+          <li>For each prospect note: full name, correct direct phone number, accurate title, company name, one specific fact about them or their company. That one fact goes in your bridge.</li>
+          <li>Always have 150+ prospects ready in your active list. If you drop below 100, building the list becomes urgent — which means rushed and low-quality. Build in advance.</li>
+          <li><strong>Sources:</strong> LinkedIn Sales Navigator, ZoomInfo, Apollo, company websites, industry directories, Chamber of Commerce lists, conference attendee lists, trade publication subscriber bases, referrals from closed clients.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-title"><i class="ti ti-trash"></i> Purging and maintaining pipeline hygiene</div>
+        <ul class="steps">
+          <li>Remove stale prospects after 8 unanswered attempts across all channels over 3 weeks. Do not hold them in your pipeline — they inflate your numbers and distort your conversion ratios.</li>
+          <li>A prospect who has not responded after 8 touches is not ready now. Move them to a monthly nurture sequence (one light touch per month) or remove entirely. Don't waste Golden Hours on them.</li>
+          <li>Re-score your Tier A/B/C designations monthly. A prospect who was B-tier may become A-tier if something changes at their company — funding round, new leadership, company growth.</li>
+          <li>Pipeline hygiene is Platinum Hours work. Every Friday, spend 15 minutes: who advanced this week, who dropped off, who needs replacing, who gets re-tiered. Clean pipeline, accurate data.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ METRICS ═══════════ -->
+<div id="page-metrics" class="page">
+  <div class="section-head">
+    <h2>Know your numbers — the dial target calculator</h2>
+    <p>Elite performers are data-driven. They don't guess at activity. They work backwards from income goals to daily dial numbers — and then they hit that number every single day. Here's how to calculate yours.</p>
+  </div>
+
+  <div class="metric-grid" style="margin-bottom:20px">
+    <div class="metric-box"><div class="metric-val">40–60</div><div class="metric-lbl">Target dials per day</div></div>
+    <div class="metric-box"><div class="metric-val">8–15%</div><div class="metric-lbl">Typical connect rate</div></div>
+    <div class="metric-box"><div class="metric-val">20–30%</div><div class="metric-lbl">Target conversation → appt</div></div>
+    <div class="metric-box"><div class="metric-val">2–4</div><div class="metric-lbl">Target appointments/day</div></div>
+    <div class="metric-box"><div class="metric-val">40–60%</div><div class="metric-lbl">Appt → opportunity rate</div></div>
+    <div class="metric-box"><div class="metric-val">weekly</div><div class="metric-lbl">Review frequency</div></div>
+  </div>
+
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--card-r);padding:24px;margin-bottom:20px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:16px">Income → Dial target calculator</div>
+    <div class="calc-grid">
+      <div class="calc-field"><label>Monthly income goal (R)</label><input type="number" id="income" value="30000" oninput="calcDials()"></div>
+      <div class="calc-field"><label>Avg commission per deal (R)</label><input type="number" id="commission" value="3000" oninput="calcDials()"></div>
+      <div class="calc-field"><label>Close rate on proposals (%)</label><input type="number" id="closerate" value="30" oninput="calcDials()"></div>
+      <div class="calc-field"><label>Appt → proposal rate (%)</label><input type="number" id="proprate" value="50" oninput="calcDials()"></div>
+      <div class="calc-field"><label>Conversation → appt rate (%)</label><input type="number" id="apptrate" value="25" oninput="calcDials()"></div>
+      <div class="calc-field"><label>Connect rate — dial to convo (%)</label><input type="number" id="connectrate" value="10" oninput="calcDials()"></div>
+    </div>
+    <div class="calc-result">
+      <div class="calc-result-grid">
+        <div class="cr-box"><div class="cr-val red" id="res-dials">—</div><div class="cr-lbl">Dials / day</div></div>
+        <div class="cr-box"><div class="cr-val gold" id="res-convos">—</div><div class="cr-lbl">Convos / day</div></div>
+        <div class="cr-box"><div class="cr-val teal" id="res-appts">—</div><div class="cr-lbl">Appts / week</div></div>
+        <div class="cr-box"><div class="cr-val" id="res-proposals">—</div><div class="cr-lbl">Proposals / month</div></div>
+        <div class="cr-box"><div class="cr-val" id="res-deals">—</div><div class="cr-lbl">Deals / month</div></div>
+        <div class="cr-box"><div class="cr-val" id="res-income" style="color:var(--green)">—</div><div class="cr-lbl">Income / month</div></div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--text3);line-height:1.6">Your daily dial number is non-negotiable. It's not a target — it's a floor. Some days you'll exceed it. Never go below it. This number is what connects your daily effort to your income goal.</div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,127,212,0.15);color:#6AAFF0"><i class="ti ti-chart-line"></i></div>
+      <div class="acc-meta"><div class="acc-title">The weekly metric review — every Friday without exception</div><div class="acc-sub">30 minutes · Identifies where you need to focus next week</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-player-play"></i> The exact review process</div>
+        <ul class="steps">
+          <li>Pull your weekly numbers: total dials, total connects, total conversations, appointments set, appointments kept, proposals sent.</li>
+          <li>Calculate your ratios: connects per dial, appointments per conversation, proposals per appointment. Compare to your baseline from prior weeks.</li>
+          <li><strong>Identify the weakest ratio.</strong> That is where you focus improvement next week — not all five at once. One focused fix at a time compounds faster than scattered fixes.</li>
+          <li>Low connect rate? Time-blocking issue — adjust your calling hours or your list quality. Low appointment rate? Opener or bridge problem — rewrite and drill. Low proposal rate? Discovery quality issue — your questions aren't uncovering need.</li>
+          <li>Set one specific improvement action for the following week. Write it down. Review it at the start of next week's Friday review to measure whether it worked.</li>
+          <li>Do this for 12 consecutive weeks. Your ratios will transform. You'll have systematically fixed every bottleneck in your process. This is how good reps become great ones.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ELITE HABITS ═══════════ -->
+<div id="page-habits" class="page">
+  <div class="section-head">
+    <h2>Elite habits — what separates the top 1%</h2>
+    <p>The difference between average reps and elite reps is not talent. It's what they do every single day, even when they don't feel like it. These are the non-negotiable daily, weekly, and monthly habits of the top performers.</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(212,168,67,0.15);color:var(--gold2)"><i class="ti ti-sun"></i></div>
+      <div class="acc-meta"><div class="acc-title">Daily non-negotiables — every working day, no exceptions</div><div class="acc-sub">Miss one day and you feel it in 90 days</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Morning (before 8am)</div><div class="tl-text">Read your "why" out loud. Confirm call list is ready (names, numbers, one fact each). Complete pre-call ritual. Block all social media notifications for Golden Hours. Stand up at your desk before first dial.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Calling blocks (8–10am and 4–6pm)</div><div class="tl-text">A-tier prospects first. Never stop mid-block to look something up — note it, keep dialling. Log immediately after each call: 20 seconds max (Attempted / VM / Spoke / Outcome + brief note). Stand up if possible. Physical energy = voice energy.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Between blocks</div><div class="tl-text">Follow-up on morning voicemails. Log any detailed notes you skipped during blocks. Schedule confirmed callbacks. Do NOT open email reactively — check it on a schedule.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Evening (Platinum Hours)</div><div class="tl-text">Full CRM update. Build tomorrow's call list — names, numbers, one research fact per prospect. Write down 3 wins from today (no matter how small — "got through a brush-off," "had a real conversation"). 30 minutes of sales education (podcast, book, YouTube). Review your "why" one more time.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(26,173,160,0.15);color:var(--teal2)"><i class="ti ti-calendar-week"></i></div>
+      <div class="acc-meta"><div class="acc-title">Weekly and monthly growth rituals</div><div class="acc-sub">How elite performers keep improving forever</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="two-col">
+        <div class="block">
+          <div class="block-title" style="color:var(--teal2)"><i class="ti ti-calendar-week"></i> Every Friday (30 min)</div>
+          <ul class="steps">
+            <li>Review metrics: dials, connects, appointments, proposals. Calculate ratios vs prior weeks.</li>
+            <li>Identify the one weakest ratio. Write one specific action to address it next week.</li>
+            <li>Add new objections heard this week to your library. Refine responses that didn't work.</li>
+            <li>15-min role-play with a peer or mentor: live objection handling or opener practice.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <div class="block-title" style="color:var(--teal2)"><i class="ti ti-calendar-month"></i> Last day of the month (1 hour)</div>
+          <ul class="steps">
+            <li>Compare month-over-month ratios. Are numbers improving? If not, identify why specifically.</li>
+            <li>Review prospect list: purge stale, re-score A/B/C based on engagement signals.</li>
+            <li>Revise your script with data from real calls — improve at least one element.</li>
+            <li>Celebrate one real win from the month by name. This sustains the long game.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-icon" style="background:rgba(42,184,112,0.15);color:var(--green)"><i class="ti ti-book"></i></div>
+      <div class="acc-meta"><div class="acc-title">The complete reading curriculum — in exact order</div><div class="acc-sub">Your 12-month professional development programme</div></div>
+      <i class="ti ti-chevron-down acc-arrow"></i>
+    </div>
+    <div class="acc-body">
+      <div class="block">
+        <div class="block-title"><i class="ti ti-book-2"></i> The Jeb Blount reading sequence</div>
+        <ul class="steps">
+          <li><strong>Months 1–2: Fanatical Prospecting.</strong> Read it twice. Highlight every action item. Implement as you go. This is the bible for the next 12 months. Everything else builds on this foundation.</li>
+          <li><strong>Months 3–4: Sales EQ.</strong> Once you're in the rhythm of prospecting, this teaches you how to WIN the conversations you're getting. The shift from activity to quality. Timing is everything — don't read this before Fanatical Prospecting.</li>
+          <li><strong>Months 5–6: Objections.</strong> By now you have a real objection library from your own calls. This book will transform your handling of every objection in it. Context from real-world experience makes it hit differently than reading it cold.</li>
+          <li><strong>Month 7+: People Follow You.</strong> Leadership thinking even as a rep. Understanding how to make people feel seen and led is the highest-level sales skill. This is where top performers separate from merely good ones.</li>
+          <li><strong>Always: Sales Gravy Podcast.</strong> Weekly. Jeb releases new episodes consistently. Each is practical and immediately actionable. This is your ongoing professional education — free, in your ears, during commutes and workouts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- .main -->
+
+<script>
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  else {
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach(b => { if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) b.classList.add('active'); });
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleAcc(head) {
+  const body = head.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  head.classList.toggle('open', !isOpen);
+}
+
+function calcDials() {
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const commission = parseFloat(document.getElementById('commission').value) || 1;
+  const closeRate = parseFloat(document.getElementById('closerate').value) / 100 || 0.01;
+  const propRate = parseFloat(document.getElementById('proprate').value) / 100 || 0.01;
+  const apptRate = parseFloat(document.getElementById('apptrate').value) / 100 || 0.01;
+  const connectRate = parseFloat(document.getElementById('connectrate').value) / 100 || 0.01;
+
+  const dealsNeeded = income / commission;
+  const proposalsNeeded = dealsNeeded / closeRate;
+  const apptsNeeded = proposalsNeeded / propRate;
+  const convosNeeded = apptsNeeded / apptRate;
+  const dialsNeeded = convosNeeded / connectRate;
+
+  const workingDays = 22;
+  const dialsPerDay = Math.ceil(dialsNeeded / workingDays);
+  const convosPerDay = (convosNeeded / workingDays).toFixed(1);
+  const apptsPerWeek = Math.ceil(apptsNeeded / (workingDays / 5));
+
+  document.getElementById('res-dials').textContent = dialsPerDay;
+  document.getElementById('res-convos').textContent = convosPerDay;
+  document.getElementById('res-appts').textContent = apptsPerWeek;
+  document.getElementById('res-proposals').textContent = Math.ceil(proposalsNeeded);
+  document.getElementById('res-deals').textContent = Math.ceil(dealsNeeded);
+  document.getElementById('res-income').textContent = 'R' + Math.round(income).toLocaleString();
+}
+
+calcDials();
+</script>
+</body>
+</html>
